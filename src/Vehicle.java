@@ -1,20 +1,42 @@
-public final class Vehicle {
+// должна включать в себя двери, колеса, мотор (enum), пассажира (отдельные классы),
+// должна иметь состояние: количество пассажиров, максимум 5; начинать движение, заканчивать движение;
+// увеличивать скорость, сбрасывать скорость, измерять скорость, максимум 100 км/час, высаживать пассажиров, подбирать.
+// Класс колеса, должен содержать тип резины(зима,лето, демисезон) и диаметр
+// Пасскажир должен содержать имя, возраст, пол
+// Машина может поехать, только если есть хоть один пассажир старше 18
+// Двери в зависимости от местоположения создаются и нельзя две одинаковые засунуть
+// В машину всунь бензобака и проверяй количество бензина, Безобак может быть на 30, 50, 70 литров
+// Естественно его можно заправлять
+// Реализуй клонабле для колес
+// Метод toString в машине, должен показать состояние её
+// Объем топлива в бензобаке, тип BigDecimal
+// Ещё пусть в тачке будет поле recentActivityDate и меняй мне его в зависимости от изменений
 
-    final private int wheels;
 
-    public Vehicle(int wheels) {
-        this.wheels = wheels;
+public class Vehicle {
+
+    public class Doors {
+
     }
 
-    public int getWheels() {
-        return wheels;
-    }
+    public class Wheels {
 
-    public static void main(String[] args) {
-
-        Vehicle car = new Vehicle(4);
-        System.out.println("Object car has " + car.wheels + " wheels");
+        private String type;
+        private int diameter;
 
     }
+
+    public class Engine {
+
+    }
+
+    public class Passenger {
+
+    }
+
+    public static class Builder {
+
+    }
+
 
 }
