@@ -15,6 +15,8 @@
 // Реализуй клонабле для колес
 // В машину всунь бензобака и проверяй количество бензина
 
+import java.util.List;
+
 public class Vehicle {
 
     private int passengerQuantity;
@@ -25,7 +27,7 @@ public class Vehicle {
 
     }
 
-    public class Wheels implements Cloneable {
+    public static class Wheel implements Cloneable {
 
         private String type;
         private int diameter;
@@ -59,8 +61,6 @@ public class Vehicle {
         private int currentVolume;
 
         // volume = new BigDecimal;
-
-
 
     }
 
@@ -102,5 +102,10 @@ public class Vehicle {
         //
     }
 
+    public static void main(String[] args) {
+        Vehicle currentCar = new Vehicle();
+        Wheel wheels = new Wheel();
+        currentCar.addWheel(wheel);
+    }
 
 }
