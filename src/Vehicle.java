@@ -15,6 +15,7 @@
 // Реализуй клонабле для колес
 // В машину всунь бензобака и проверяй количество бензина
 
+import java.util.Date;
 import java.util.List;
 
 public class Vehicle {
@@ -22,9 +23,14 @@ public class Vehicle {
     private int passengerQuantity;
     private int currentSpeed;
     private List<Wheel> wheels;
+    private List<Door> doors;
+    private String engine;
+    private int currentFuelVolume;
+    private int fuelVolume;
+    private Date recentActivityDate;
 
-    public class Doors {
-
+    public static class Door {
+        //
     }
 
     public static class Wheel implements Cloneable {
@@ -58,48 +64,66 @@ public class Vehicle {
     public class FuelTank {
 
         private int volume;
-        private int currentVolume;
+        private int currentFuelVolume;
 
         // volume = new BigDecimal;
 
     }
 
-    public int refuel (int inFuel){
+    public int refuel(int inFuel) {
         // заправка
-        Vehicle.FuelTank currentVolume = new FuelTank();
-        currentVolume += inFuel;
+        Vehicle.FuelTank currentFuelVolume = new FuelTank();
+        currentFuelVolume += inFuel;
 
-        return currentVolume;
+        return currentFuelVolume;
     }
 
-    public String checkFuelVolume (int currentVolume){
+    public String checkFuelVolume(int currentVolume) {
         // заправка
     }
 
     public void drive(boolean checkPassenger) {
-        if (checkPassenger==true) {
+        if (checkPassenger == true) {
             // движение
         } else System.out.println("В машине нет хотя бы одного водителя старше 18 лет");
     }
 
-    public void pickUpPassenger(Passenger passenger){
+    public void pickUpPassenger(Passenger passenger) {
         // pick up
     }
 
-    public void dropPassenger(Passenger passenger){
+    public void dropPassenger(Passenger passenger) {
         // drop passenger
     }
 
-    public void speedUp(int currentSpeed){
+    public void speedUp(int currentSpeed) {
         //
     }
 
-    public void speedDown(int currentSpeed){
+    public void speedDown(int currentSpeed) {
         //
     }
 
-    public void checkSpeed(int currentSpeed){
+    public void checkSpeed(int currentSpeed) {
         //
+    }
+
+    private Date recentActivityDate
+
+    {
+        //
+        return recentActivityDate;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Quantity of Passengers: " + passengerQuantity + "\n" +
+                "Current speed: " + currentSpeed + "\n" +
+                "Level of Fuel: " + currentFuelVolume + "\n" +
+                "Volume of Fuel Tank: " + fuelVolume + "\n" +
+                "Last Activity Date: " + recentActivityDate + "\n"
+                ;
     }
 
     public static void main(String[] args) {
