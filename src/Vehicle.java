@@ -4,7 +4,6 @@
 // увеличивать скорость, сбрасывать скорость, измерять скорость, максимум 100 км/час, высаживать пассажиров, подбирать.
 // Двери в зависимости от местоположения создаются и нельзя две одинаковые засунуть
 // Безобак может быть на 30, 50, 70 литров
-// Метод toString в машине, должен показать состояние её
 // Объем топлива в бензобаке, тип BigDecimal
 // Ещё пусть в тачке будет поле recentActivityDate и меняй мне его в зависимости от изменений
 // Выполнено: ++++++++++++++++++++++++++++++++++++++++++++
@@ -14,7 +13,9 @@
 // Естественно его можно заправлять (бензобак)
 // Реализуй клонабле для колес
 // В машину всунь бензобака и проверяй количество бензина
+// Метод toString в машине, должен показать состояние её
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +46,12 @@ public class Vehicle {
     }
 
     public class Engine {
-        // двигатель
+
+        private String brand;
+        private String model;
+        private String typeOfFuel;
+
+
     }
 
     public class Passenger {
@@ -61,25 +67,44 @@ public class Vehicle {
 
     }
 
-    public class FuelTank {
+    public static class FuelTank {
 
-        private int volume;
-        private int currentFuelVolume;
+        private BigDecimal volume;
+        private int currentVolume;
 
-        // volume = new BigDecimal;
+        public BigDecimal getVolume() {
+            return volume;
+        }
+
+        public int getCurrentVolume() {
+            return currentVolume;
+        }
+
+        public void setVolume(BigDecimal volume) {
+            if ((volume != 30) || (volume != 50) || (volume != 70)) {
+                System.out.println("The volume of Fuel Tank should be 30, 50 or 70 litres");
+            } else this.volume = volume;
+        }
+
+        public void setCurrentVolume(int currentVolume) {
+            this.currentVolume = currentVolume;
+        }
+    }
+
+    public void refuel(int inFuel) {
+        // заправка
+        if ((currentFuelVolume + inFuel) >= fuelVolume) {
+            currentFuelVolume = fuelVolume;
+            System.out.println("The fuel tank is fully refueled");
+        } else {
+            currentFuelVolume += inFuel;
+            System.out.println("The fuel tank is refueled to " + currentFuelVolume + " litres");
+        }
 
     }
 
-    public int refuel(int inFuel) {
-        // заправка
-        Vehicle.FuelTank currentFuelVolume = new FuelTank();
-        currentFuelVolume += inFuel;
-
-        return currentFuelVolume;
-    }
-
-    public String checkFuelVolume(int currentVolume) {
-        // заправка
+    public void checkFuelVolume(int currentFuelVolume) {
+        System.out.println("The fuel tank is full of " + currentFuelVolume + " litres");
     }
 
     public void drive(boolean checkPassenger) {
